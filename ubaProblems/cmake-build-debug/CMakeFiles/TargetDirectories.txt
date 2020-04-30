@@ -1,0 +1,3 @@
+/Users/andresriveros/Documents/GitHub/unidad-2-semana-4-algoritmos-stl-Andres20-Utec/ubaProblems/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/andresriveros/Documents/GitHub/unidad-2-semana-4-algoritmos-stl-Andres20-Utec/ubaProblems/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/andresriveros/Documents/GitHub/unidad-2-semana-4-algoritmos-stl-Andres20-Utec/ubaProblems/cmake-build-debug/CMakeFiles/ubaProblems.dir
