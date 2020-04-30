@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/andresriveros/Documents/GitHub/unidad-2-semana-4-algoritmos-stl-Andres20-Utec/ubaProblems/funciones.h
+iostream
+-
+algorithm
+-
+vector
+-
+string
+-
+sstream
+-
+utility
+-
+
+/Users/andresriveros/Documents/GitHub/unidad-2-semana-4-algoritmos-stl-Andres20-Utec/ubaProblems/main.cpp
+funciones.h
+/Users/andresriveros/Documents/GitHub/unidad-2-semana-4-algoritmos-stl-Andres20-Utec/ubaProblems/funciones.h
+
