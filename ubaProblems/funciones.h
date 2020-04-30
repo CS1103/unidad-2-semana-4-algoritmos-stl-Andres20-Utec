@@ -12,6 +12,20 @@
 #include <utility>
 using namespace std;
 
+vector<int> rellenarVector(int size_){
+    vector<int> vec;
+    int elem;
+    string text;
+    getline(cin,text);
+    stringstream ss(text);
+    int count=0;
+    while(ss >> elem){
+        vec.push_back(elem);
+        if(size_ == count)
+            break;
+    }
+    return vec;
+}
 //UBA 146
 void nextPermutation(){
     string word;
@@ -42,7 +56,7 @@ int amountOfSwaps(vector<T> vec){
         for(int j = 0; j < vec.size()- 1; ++j){
             if(vec.at(j) > vec.at(j + 1)){
                 int temp = vec.at(j);
-                vec.at(j) = vec.at(j + 1);//Posición inicila
+                vec.at(j) = vec.at(j + 1);//Posición inicial
                 vec.at(j + 1) = temp; // Posición siguiente
                 count++;
             }
@@ -96,5 +110,72 @@ void displayOrder(vector<pair<string,int>> wordAndAmountOfSwaps){
     for(auto dniWord : wordAndAmountOfSwaps){
         cout << dniWord.first <<endl;
     }
+}
+//UBA 11136
+pair<int,int> findMaxMinBill(size_t size_, int value = 0);
+void showAnswer(vector<pair<int,int>> maxAndMin){
+    int max = 0, min = maxAndMin[0].first;
+    for(auto c : maxAndMin){
+        if(max < c.first){
+            max = c.first;
+        }
+        if(min > c.second){
+            min = c.second;
+        }
+    }
+    cout << max << '\n' << min << '\n';
+}
+int sumaTotaldelDía(){
+    int elem;
+    size_t size_;
+    cin >> size_;
+    string text;
+    getline(cin,text);
+    stringstream ss(text);
+    int total_bill = 0;
+    int count = 0;
+    while(ss >> elem){
+        total_bill += elem;
+        count++;
+        if(size_ == count){
+            break;
+        }
+    }
+    return total_bill;
+}
+
+void uba_11136(){
+    vector<pair<int,int>> maxAndmin;
+    size_t numCases=0;
+    int count=0;
+    do{
+        cin >> numCases;
+        if(numCases == 0) break;
+        if(count > 0){
+            int last_value =maxAndmin[count-1].second;
+            maxAndmin.push_back(findMaxMinBill(numCases,last_value));
+        }
+        else{
+            maxAndmin.push_back(findMaxMinBill(numCases));
+        }
+        count++;
+    }while(true);
+    showAnswer(maxAndmin);
+}
+
+pair<int,int> findMaxMinBill(size_t numCases, int value){
+    pair<int,int> maxMin;
+    maxMin.second = value;
+    for(int i = 0; i < numCases; ++i){
+        int result = sumaTotaldelDía();
+        if(result >= maxMin.first){
+            maxMin.first = result;
+        }
+        else{
+            maxMin.second = result;
+        }
+    }
+    maxMin.first -=maxMin.second;
+    return maxMin;
 }
 #endif //UBAPROBLEMS_FUNCIONES_H

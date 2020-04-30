@@ -11,14 +11,9 @@ int main() {
     cout << "Cantidad de veces: "; cin >> size;
     for(int i= 0; i < size;++i)
     {
-        vector<int> vec;
-        int size2;
-        cin>> size2;
-        for(int j=0; j < size2; ++j){
-            int elem;
-            cin >> elem;
-            vec.push_back(elem);
-        }
+        int size_;
+        cin >> size_; // (4) 4 3 2 1 / (5) 1 3 2 5 4
+        vector<int> vec = rellenarVector(size_);
         answer.push_back(amountOfSwaps(vec));
     }
     for(int i = 0; i < answer.size();++i){
@@ -26,14 +21,16 @@ int main() {
     }
 
 // UBA 482
-    string text = "3 1 2 5 4";
+    string text;
+    getline(cin, text);
     vector <int> vecI;
     stringstream ss(text);
     int value;
     while(ss >> value){
         vecI.push_back(value);
     }
-    string text1 = "32.0 54.7 -2 11.25 32.1";
+    string text1;
+    getline(cin, text1);
     double value2;
     stringstream ss1(text1);
     vector<double> vecD;
@@ -58,5 +55,8 @@ int main() {
     }
     displayOrder(wordAndAmountOfSwaps);
     cout << endl;
+
+    // UBA11136
+    uba_11136();
     return 0;
 }
