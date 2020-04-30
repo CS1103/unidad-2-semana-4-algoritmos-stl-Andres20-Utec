@@ -15,19 +15,23 @@ using namespace std;
 //UBA 146
 void nextPermutation(){
     string word;
+    vector<string> nextP;
     do{
         cin >> word;
-        if(next_permutation(word.begin(),word.end()))
-            cout << word << endl;
-        else if(word.at(0) == '#') {
-            cout << endl;
-            return;
+        if(next_permutation(word.begin(),word.end())){
+            nextP.push_back(word + "\n");
+        }
+        else if(word.at(0) == '#'){
+            break;
         }
         else{
-            cout << "No sucesor" << endl;
+            nextP.emplace_back("No sucesor\n");
         }
     }
     while(word.at(0) != '#');
+    for(auto p : nextP){
+        cout << p;
+    }
 }
 
 // UBA299
