@@ -53,7 +53,7 @@ template<typename T>
 int amountOfSwaps(vector<T> vec){
     int count = 0;
     for(int i = 0; i < vec.size(); ++i){
-        for(int j = 0; j < vec.size()- 1; ++j){
+        for(int j = 0; j < vec.size()- 1 - i; ++j){
             if(vec.at(j) > vec.at(j + 1)){
                 int temp = vec.at(j);
                 vec.at(j) = vec.at(j + 1);//Posición inicial
