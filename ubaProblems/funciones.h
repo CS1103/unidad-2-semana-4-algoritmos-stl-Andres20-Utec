@@ -9,6 +9,8 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <iomanip>
+#include <map>
 #include <utility>
 #include <list>
 using namespace std;
@@ -164,5 +166,37 @@ int findMaxMinBill(size_t days,list<int> &urna){
     urna.pop_front();
     urna.pop_back();
     return winner;
+}
+
+//UBA 11430
+void uba11430(){
+    size_t test;
+    size_t lines;
+    cin >> test;
+    map<char,int> letterPrice;
+    for(int i = 0; i < test; ++i){
+        cin >> lines;
+        for(int i = 0; i < lines; i++){
+            char letter;
+            int cost;
+            cin >> letter >> cost;
+            letterPrice.insert(pair<char, int>(letter, cost));
+        }
+    }
+    double Authorpayment = 0;
+    int lines1;
+    cin >> lines1;
+    string line;
+    string parrafo = "";
+    for(int i = 0; i < lines1 + 1; ++i){
+        getline(cin, line);
+        parrafo += line;
+    }
+    for(auto itr = letterPrice.begin(); itr != letterPrice.end(); ++itr){
+        int amountOfChar = count(parrafo.begin(), parrafo.end(), itr->first);
+        Authorpayment += (itr->second * amountOfChar);
+    }
+    Authorpayment /= 100;
+    cout << fixed << setprecision(2) << Authorpayment<< "$";
 }
 #endif //UBAPROBLEMS_FUNCIONES_H

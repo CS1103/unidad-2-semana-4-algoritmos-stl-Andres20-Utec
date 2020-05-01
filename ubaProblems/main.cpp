@@ -1,7 +1,7 @@
 #include "funciones.h"
 
 int main() {
-/*
+
     // UBA 146
     nextPermutation();
 
@@ -55,8 +55,11 @@ int main() {
     }
     displayOrder(wordAndAmountOfSwaps);
     cout << endl;
-*/
-    // UBA11136
+
+    // UBA 11136
     uba_11136();
+
+    // UBA 11340
+    uba11340();
     return 0;
 }
