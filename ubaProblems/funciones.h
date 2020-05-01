@@ -148,7 +148,7 @@ void uba_11136(){
     cout << max_value << '\n' << min_value << '\n';
 }
 //UBA 11430
-void uba11430(){
+void payAuthor(){
     size_t test,lines;
     cin >> test;
     map<char,int> letterPrice;

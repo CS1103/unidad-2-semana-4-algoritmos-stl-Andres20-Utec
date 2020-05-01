@@ -12,7 +12,7 @@ int main() {
     for(int i= 0; i < size;++i)
     {
         int size_;
-        cin >> size_; // (4) 4 3 2 1 / (5) 1 3 2 5 4
+        cin >> size_; // inputs : size_=(4) 4 3 2 1 / 5 1 3 2 5 4
         vector<int> vec = rellenarVector(size_);
         answer.push_back(amountOfSwaps(vec));
     }
@@ -60,6 +60,6 @@ int main() {
     uba_11136();
 
     // UBA 11340
-    uba11340();
+    payAuthor();
     return 0;
 }
