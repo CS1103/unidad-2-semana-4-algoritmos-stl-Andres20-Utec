@@ -115,12 +115,6 @@ void displayOrder(vector<pair<string,int>> wordAndAmountOfSwaps){
     }
 }
 //UBA 11136
-int findMaxMinBill(size_t days,list<int> &urna);
-void showAnswer(vector<int> &max_values,const int &min){
-    int max = max_values.at(0);
-    for(auto val : max_values){if(val > max) max = val;}
-    cout << max << '\n' << min << '\n';
-}
 int sumaTotaldelDía(){
     int elem;
     int total_bill = 0;
@@ -135,50 +129,33 @@ int sumaTotaldelDía(){
     return total_bill;
 }
 void uba_11136(){
-    vector<int> max_values;
     list<int> urna;
-    int min_value;
     int count = 0;
     size_t days;
     while(true){
         cin >> days;
         if(days == 0) break;
-        max_values.push_back(findMaxMinBill(days,urna));
-        if(count == 0){
-            min_value = max_values.at(0);
-            min_value= (min_value >= urna.front())? urna.front(): min_value;
-            count++;
+        for(int i = 0; i < days; ++i){
+            urna.push_back(sumaTotaldelDía());
         }
-        else
-            min_value= (min_value >= urna.front())? urna.front(): min_value;
-    }
-    showAnswer(max_values, min_value);
-}
-
-int findMaxMinBill(size_t days,list<int> &urna){
-
-    for(int i = 0; i < days; ++i) {
-        urna.push_back(sumaTotaldelDía());
     }
     urna.sort();
     if(urna.front()==0) urna.pop_front();
-    int winner = urna.back() - urna.front();
+    int min_value = urna.front();
+    int max_value = urna.back() - min_value;
     urna.pop_front();
     urna.pop_back();
-    return winner;
+    cout << max_value << '\n' << min_value << '\n';
 }
-
 //UBA 11430
 void uba11430(){
-    size_t test;
-    size_t lines;
+    size_t test,lines;
     cin >> test;
     map<char,int> letterPrice;
     for(int i = 0; i < test; ++i){
         cin >> lines;
         for(int i = 0; i < lines; i++){
-            char letter;
-            int cost;
+            char letter; int cost;
             cin >> letter >> cost;
             letterPrice.insert(pair<char, int>(letter, cost));
         }
@@ -186,8 +163,7 @@ void uba11430(){
     double Authorpayment = 0;
     int lines1;
     cin >> lines1;
-    string line;
-    string parrafo = "";
+    string line, parrafo = "";
     for(int i = 0; i < lines1 + 1; ++i){
         getline(cin, line);
         parrafo += line;
@@ -196,7 +172,6 @@ void uba11430(){
         int amountOfChar = count(parrafo.begin(), parrafo.end(), itr->first);
         Authorpayment += (itr->second * amountOfChar);
     }
-    Authorpayment /= 100;
-    cout << fixed << setprecision(2) << Authorpayment<< "$";
+    cout << fixed << setprecision(2) << Authorpayment/100<< "$";
 }
 #endif //UBAPROBLEMS_FUNCIONES_H
